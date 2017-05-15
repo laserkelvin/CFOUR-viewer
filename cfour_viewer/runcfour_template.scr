@@ -1,0 +1,5 @@
+#!{0}
+
+from cfour_viewer import cfour_driver
+
+cfour_driver.setup_calc(mode="cluster")

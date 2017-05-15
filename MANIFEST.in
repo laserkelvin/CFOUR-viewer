@@ -1,0 +1,11 @@
+include cfour_viewer/settings.json
+include cfour_viewer/pbs.sh
+include cfour_viewer/runcfour_template.scr
+include cfour_viewer/parsecfour_template.scr
+include cfour_viewer/copyzmat_template.scr
+include cfour_viewer/harmdiff_template.scr
+include cfour_viewer/analyseharmdiff_template.scr
+include cfour_viewer/analysevpt2_template.scr
+include cfour_viewer/setupvpt2_template.scr
+include cfour_viewer/generatereports_template.scr
+include cfour_viewer/harmfreqisotopes_template.scr

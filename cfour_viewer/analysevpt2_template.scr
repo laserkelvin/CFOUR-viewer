@@ -1,0 +1,13 @@
+#!{0}
+
+import sys
+from cfour_viewer import cfour_freq as cf
+
+if len(sys.argv) < 3:
+    print("Usage: analysefreqoutput (Harmonic ID) (Displaced IDs)")
+    sys.exit()
+
+else:
+    baseID = int(sys.argv[1])
+    displacedIDs = [int(ID) for ID in sys.argv[2:]]
+    cf.analyse_vpt2(baseID, displacedIDs)
