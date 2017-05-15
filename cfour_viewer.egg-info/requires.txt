@@ -1,0 +1,6 @@
+numpy
+plotly
+pandas
+scipy
+colorlover
+matplotlib

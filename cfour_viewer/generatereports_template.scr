@@ -1,0 +1,12 @@
+#!{0}
+
+import sys
+from cfour_viewer import cfour_driver
+
+if len(sys.argv) < 2:
+    print("Usage: generateReports (CalcIDs)")
+    print("Give at least one CalcID to generate an HTML report.")
+    sys.exit()
+
+else:
+    cfour_driver.generate_reports(sys.argv[1:])

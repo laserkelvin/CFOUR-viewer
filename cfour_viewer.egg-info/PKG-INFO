@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: cfour-viewer
+Version: 0.3
+Summary: A PyQt5 frontend to the electronic structure program, CFOUR.
+Home-page: UNKNOWN
+Author: Kelvin Lee
+Author-email: kin.long.kelvin.lee@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
