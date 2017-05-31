@@ -1,7 +1,7 @@
 {
     "output_dir": "/home/klee/cfour_outputs",
     "scr_dir": "/pool/sao/klee",
-    "cfour_dir": "/home/klee/cfour/cfour15/bin",
+    "cfour_dir": "/home/klee/cfour/cfour17/bin",
     "model_pbs": "/home/klee/pbs.sh",
     "log_file": "/home/klee/cfour_outputs/README.md"
 }

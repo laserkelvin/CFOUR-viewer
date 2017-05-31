@@ -43,7 +43,7 @@ def setup_calc(mode="test"):
     settings["calc_dir"] = settings["output_dir"] + "/" + str(calcID) + "/calcs"
     settings["json_dir"] = settings["output_dir"] + "/" + str(calcID) + "/json"
     settings["figs_dir"] = settings["output_dir"] + "/" + str(calcID) + "/figures"
-    settings["docs_dur"] = settings["output_dir"] + "/" + str(calcID) + "/docs"
+    settings["docs_dir"] = settings["output_dir"] + "/" + str(calcID) + "/docs"
     os.chdir(settings["output_dir"] + "/" + str(calcID))
     # Set up the file structure
     ad.setup_folders()
@@ -112,17 +112,24 @@ def harm_findif():
     with open(script_path + "/settings.json") as open_json:
         settings = json.load(open_json)
     os.chdir(settings["output_dir"])
+    # Find out where the basis lives for current CFOUR
+    settings["cfour_path"] = os.path.dirname(shutil.which("xcfour")) + "/.."
+    settings["basis_path"] = settings["cfour_path"] + "/basis"
     # Generate the next in a chain of calculation IDs
     calcID = ad.generate_folder()
     # Set up where the folders will live
     settings["calc_dir"] = settings["output_dir"] + "/" + str(calcID) + "/calcs"
     settings["json_dir"] = settings["output_dir"] + "/" + str(calcID) + "/json"
     settings["figs_dir"] = settings["output_dir"] + "/" + str(calcID) + "/figures"
-    settings["docs_dur"] = settings["output_dir"] + "/" + str(calcID) + "/docs"
+    settings["docs_dir"] = settings["output_dir"] + "/" + str(calcID) + "/docs"
     os.chdir(settings["output_dir"] + "/" + str(calcID))
     # Set up the file structure
     ad.setup_folders()
     shutil.copy2(cwd + "/ZMAT", settings["calc_dir"] + "/ZMAT")
+    # Copy the basis data to the work directory
+    for basis in ["GENBAS", "ECPDATA"]:
+        shutil.copy2(settings["basis_path"] + "/" + basis,
+                     settings["calc_dir"] + "/" + basis)
     # Initialise an instance of CFOUR calculation
     calculation = cr.cfour_instance(
         calcID=calcID,
