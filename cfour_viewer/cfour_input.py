@@ -4,30 +4,28 @@ import subprocess
 import json
 import time
 
-class cfour_zmat:
-    """ Class for generating an input file for CFOUR.
-        The idea is to simplify input by interpreting a dictionary read in
-        from a JSON file.
+class cfour_handler:
     """
-    def __init__(self, json_dict):
-        self.settings = """{comment}
-        {zmat}
+        Parent class that handles a CFOUR calculation ID. This can involve one
+        or multiple calculations that may or may not depend on each other.
+        For example, geometry optimization with multiple basis, either parallel
+        or sequential, or a HEAT calculation.
 
-        *CFOUR(CALC_LEVEL={method}
-        BASIS={basis}
-        SCF_CONV={scf convergence}
-        CC_CONV={cc convergence}
-        GEO_CONV={geo convergence}
-        LINEQ_CONV={lineq convergence}
-        MEM_UNIT=GB
-        MEMORY_SIZE={memory}
-        ABCD=AOBASIS
-        {extra keywords})
-
-        {parameters}
+        Calculation schemes will be stored in the dot folder in the $HOME direc-
+        tory, so that you can add more schemes without having to hard-code.
+    """
+    class cfour_calc(cfour_handler):
         """
+            Class for handling a single CFOUR calculation. This handles generation
+            of an input file, copying files to scratch, running the calculation
+            using subprocess, and then preserving the results.
 
-        self.settings.update(json_dict)
+            The more advanced methods, such as handling multiple chained calculations
+            will be performed in the parent class.
+        """
+        def __init__(self, )
+
+
 
 
 class cfour_zmat:
